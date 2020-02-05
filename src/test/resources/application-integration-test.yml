@@ -1,0 +1,3 @@
+tmdb:
+  url: http://localhost:8091
+  api-key: 123456789

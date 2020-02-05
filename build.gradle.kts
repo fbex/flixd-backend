@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val wireMockVersion = "2.26.0"
+val mockkVersion = "1.9.3"
 
 plugins {
     id("org.springframework.boot") version "2.3.0.M1"
@@ -30,6 +31,7 @@ dependencies {
     }
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("com.github.tomakehurst:wiremock-jre8-standalone:$wireMockVersion")
+    testImplementation("io.mockk:mockk:$mockkVersion")
 }
 
 tasks.withType<Test> {
