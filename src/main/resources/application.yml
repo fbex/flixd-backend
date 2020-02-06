@@ -1,7 +1,10 @@
-tmdb:
-  url: https://api.themoviedb.org/3
-  api-key: undefined
+justwatch:
+  url: https://apis.justwatch.com
 
 logging:
   level:
     root: INFO
+
+tmdb:
+  url: https://api.themoviedb.org/3
+  api-key: undefined

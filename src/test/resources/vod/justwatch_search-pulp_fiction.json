@@ -1,0 +1,563 @@
+{
+  "page_size": 1,
+  "total_pages": 1,
+  "total_results": 1,
+  "items": [
+    {
+      "jw_entity_id": "tm112130",
+      "id": 112130,
+      "title": "Pulp Fiction",
+      "full_path": "/de/Film/Pulp-Fiction",
+      "full_paths": {
+        "MOVIE_DETAIL_OVERVIEW": "/de/Film/Pulp-Fiction"
+      },
+      "poster": "/poster/8539957/{profile}",
+      "original_release_year": 1994,
+      "tmdb_popularity": 28.514,
+      "object_type": "movie",
+      "localized_release_date": "1994-11-03",
+      "offers": [
+        {
+          "monetization_type": "buy",
+          "provider_id": 130,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.sky.de/product/pulp-fiction/acb6d13e-bee8-43a8-9fe7-ea1e2ed5f9ed"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "dvd",
+          "date_created_provider_id": "2000-07-14_130",
+          "date_created": "2000-07-14",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 130,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.sky.de/product/pulp-fiction/acb6d13e-bee8-43a8-9fe7-ea1e2ed5f9ed"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "bluray",
+          "date_created_provider_id": "2000-07-14_130",
+          "date_created": "2000-07-14",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 130,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.sky.de/product/pulp-fiction/acb6d13e-bee8-43a8-9fe7-ea1e2ed5f9ed"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2000-07-14_130",
+          "date_created": "2000-07-14",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "cinema",
+          "provider_id": 104,
+          "urls": {
+            "standard_web": "5199"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "canvas",
+          "date_created_provider_id": "2018-09-19_104",
+          "date_created": "2018-09-19",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 177,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.pantaflix.com/de/m/751047?utm_campaign=jw-ww-ww-ml-m-pflx-just-watch-1815&utm_medium=referral&utm_source=justwatch&utm_term=DE"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2018-04-13_177",
+          "date_created": "2018-04-13",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 20,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.maxdome.de/2779868"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2018-03-24_20",
+          "date_created": "2018-03-24",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 20,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.maxdome.de/2779868"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2018-03-24_20",
+          "date_created": "2018-03-24",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "flatrate",
+          "provider_id": 8,
+          "urls": {
+            "standard_web": "http://www.netflix.com/title/880640",
+            "deeplink_android": "nflx://www.netflix.com/Browse?q=action%3Dplay%26source%3Dmerchweb%26target_url%3Dhttp%3A%2F%2Fmovi.es%2F7tEu",
+            "deeplink_ios": "nflx://www.netflix.com/Browse?q=action%3Dview_details%26target_url%3Dhttp%253A%252F%252Fmovi.es%252F7tEu"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2017-07-07_8",
+          "date_created": "2017-07-07",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "flatrate",
+          "provider_id": 8,
+          "urls": {
+            "standard_web": "http://www.netflix.com/title/880640",
+            "deeplink_android": "nflx://www.netflix.com/Browse?q=action%3Dplay%26source%3Dmerchweb%26target_url%3Dhttp%3A%2F%2Fmovi.es%2F7tEu",
+            "deeplink_ios": "nflx://www.netflix.com/Browse?q=action%3Dview_details%26target_url%3Dhttp%253A%252F%252Fmovi.es%252F7tEu"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-06-02_8",
+          "date_created": "2017-06-02",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "flatrate",
+          "provider_id": 9,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.amazon.de/gp/product/B00IGK7D06?camp=1638&creativeASIN=B00IGK7D06&ie=UTF8&linkCode=xm2&tag=movie0c6-21",
+            "deeplink_android": "intent://watch.amazon.de/watch?asin=DE&contentType=MOVIE&territory=B00IGK7D06&ref_=atv_dp_pb_core#Intent;scheme=https;package=com.amazon.avod.thirdpartyclient;end",
+            "deeplink_ios": "aiv-de://aiv/resume?_encoding=UTF8&asin=B00IGK7D06&time=0"
+          },
+          "subtitle_languages": [
+            "de",
+            "en"
+          ],
+          "audio_languages": [
+            "de",
+            "en"
+          ],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2017-05-30_9",
+          "date_created": "2017-05-30",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "flatrate",
+          "provider_id": 9,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.amazon.de/gp/product/B00IGK7D06?camp=1638&creativeASIN=B00IGK7D06&ie=UTF8&linkCode=xm2&tag=movie0c6-21",
+            "deeplink_android": "intent://watch.amazon.de/watch?asin=DE&contentType=MOVIE&territory=B00IGK7D06&ref_=atv_dp_pb_core#Intent;scheme=https;package=com.amazon.avod.thirdpartyclient;end",
+            "deeplink_ios": "aiv-de://aiv/resume?_encoding=UTF8&asin=B00IGK7D06&time=0"
+          },
+          "subtitle_languages": [
+            "en",
+            "de"
+          ],
+          "audio_languages": [
+            "de",
+            "en"
+          ],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-05-30_9",
+          "date_created": "2017-05-30",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "flatrate",
+          "provider_id": 29,
+          "urls": {
+            "standard_web": "https://ad.zanox.com/ppc/?41728307C1348667999&ulp=[[http://www.skygo.sky.de/film/thriller/pulp-fiction/asset/filmsection/122681.html]]"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-04-02_29",
+          "date_created": "2017-04-02",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "flatrate",
+          "provider_id": 30,
+          "urls": {
+            "standard_web": "https://ad.zanox.com/ppc/?41728307C1348667999&ulp=[[http://skyticket.sky.de/film/thriller/pulp-fiction/asset/filmsection/122681.html]]"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-04-02_30",
+          "date_created": "2017-04-02",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 35,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://rakuten.tv/de/movies/pulp-fiction"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2017-03-21_35",
+          "date_created": "2017-03-21",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 35,
+          "retail_price": 7.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://rakuten.tv/de/movies/pulp-fiction"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-03-21_35",
+          "date_created": "2017-03-21",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 10,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.amazon.de/gp/product/B00IGK7D06?camp=1638&creativeASIN=B00IGK7D06&ie=UTF8&linkCode=xm2&tag=movie0c6-21",
+            "deeplink_android": "intent://watch.amazon.de/watch?asin=DE&contentType=MOVIE&territory=B00IGK7D06&ref_=atv_dp_pb_core#Intent;scheme=https;package=com.amazon.avod.thirdpartyclient;end",
+            "deeplink_ios": "aiv-de://aiv/resume?_encoding=UTF8&asin=B00IGK7D06&time=0"
+          },
+          "subtitle_languages": [
+            "de",
+            "en"
+          ],
+          "audio_languages": [
+            "de",
+            "en"
+          ],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2017-03-16_10",
+          "date_created": "2017-03-16",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 10,
+          "retail_price": 2.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.amazon.de/gp/product/B00IGK7D06?camp=1638&creativeASIN=B00IGK7D06&ie=UTF8&linkCode=xm2&tag=movie0c6-21",
+            "deeplink_android": "intent://watch.amazon.de/watch?asin=DE&contentType=MOVIE&territory=B00IGK7D06&ref_=atv_dp_pb_core#Intent;scheme=https;package=com.amazon.avod.thirdpartyclient;end",
+            "deeplink_ios": "aiv-de://aiv/resume?_encoding=UTF8&asin=B00IGK7D06&time=0"
+          },
+          "subtitle_languages": [
+            "de",
+            "en"
+          ],
+          "audio_languages": [
+            "de",
+            "en"
+          ],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-03-16_10",
+          "date_created": "2017-03-16",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 10,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.amazon.de/gp/product/B00IGK7D06?camp=1638&creativeASIN=B00IGK7D06&ie=UTF8&linkCode=xm2&tag=movie0c6-21",
+            "deeplink_android": "intent://watch.amazon.de/watch?asin=DE&contentType=MOVIE&territory=B00IGK7D06&ref_=atv_dp_pb_core#Intent;scheme=https;package=com.amazon.avod.thirdpartyclient;end",
+            "deeplink_ios": "aiv-de://aiv/resume?_encoding=UTF8&asin=B00IGK7D06&time=0"
+          },
+          "subtitle_languages": [
+            "de",
+            "en"
+          ],
+          "audio_languages": [
+            "de",
+            "en"
+          ],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2017-03-16_10",
+          "date_created": "2017-03-16",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 10,
+          "retail_price": 7.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://www.amazon.de/gp/product/B00IGK7D06?camp=1638&creativeASIN=B00IGK7D06&ie=UTF8&linkCode=xm2&tag=movie0c6-21",
+            "deeplink_android": "intent://watch.amazon.de/watch?asin=DE&contentType=MOVIE&territory=B00IGK7D06&ref_=atv_dp_pb_core#Intent;scheme=https;package=com.amazon.avod.thirdpartyclient;end",
+            "deeplink_ios": "aiv-de://aiv/resume?_encoding=UTF8&asin=B00IGK7D06&time=0"
+          },
+          "subtitle_languages": [
+            "en",
+            "de"
+          ],
+          "audio_languages": [
+            "en",
+            "de"
+          ],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-03-16_10",
+          "date_created": "2017-03-16",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 35,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://rakuten.tv/de/movies/pulp-fiction"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2017-03-10_35",
+          "date_created": "2017-03-10",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 35,
+          "retail_price": 2.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://rakuten.tv/de/movies/pulp-fiction"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2017-03-10_35",
+          "date_created": "2017-03-10",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 18,
+          "retail_price": 7.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.playstation.com/#!/de-de/cid=UV0002-NPVA50969_CN-0000000000116850"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2000-01-01_18",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 18,
+          "retail_price": 14.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.playstation.com/#!/de-de/cid=UV0002-NPVA50969_CN-0000000000116850"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2000-01-01_18",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 18,
+          "retail_price": 2.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.playstation.com/#!/de-de/cid=UV0002-NPVA50969_CN-0000000000116850"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2000-01-01_18",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 18,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.playstation.com/#!/de-de/cid=UV0002-NPVA50969_CN-0000000000116850"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2000-01-01_18",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 20,
+          "retail_price": 7.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.maxdome.de/2779868"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2000-01-01_20",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 20,
+          "retail_price": 2.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://store.maxdome.de/2779868"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2000-01-01_20",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 2,
+          "retail_price": 9.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://itunes.apple.com/de/movie/pulp-fiction/id495454433?l=en&uo=4&at=1000l3V2"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2000-01-01_2",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 2,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://itunes.apple.com/de/movie/pulp-fiction/id495454433?l=en&uo=4&at=1000l3V2"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2000-01-01_2",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "rent",
+          "provider_id": 2,
+          "retail_price": 3.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://itunes.apple.com/de/movie/pulp-fiction/id495454433?l=en&uo=4&at=1000l3V2"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "hd",
+          "date_created_provider_id": "2000-01-01_2",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        },
+        {
+          "monetization_type": "buy",
+          "provider_id": 2,
+          "retail_price": 7.99,
+          "currency": "EUR",
+          "urls": {
+            "standard_web": "https://itunes.apple.com/de/movie/pulp-fiction/id495454433?l=en&uo=4&at=1000l3V2"
+          },
+          "subtitle_languages": [],
+          "audio_languages": [],
+          "presentation_type": "sd",
+          "date_created_provider_id": "2000-01-01_2",
+          "date_created": "2000-01-01",
+          "country": "DE"
+        }
+      ],
+      "scoring": [
+        {
+          "provider_type": "tmdb:score",
+          "value": 8.5
+        },
+        {
+          "provider_type": "tomato:meter",
+          "value": 92
+        },
+        {
+          "provider_type": "tomato_userrating:meter",
+          "value": 96
+        },
+        {
+          "provider_type": "tomato:id",
+          "value": 13863
+        },
+        {
+          "provider_type": "tmdb:id",
+          "value": 680
+        },
+        {
+          "provider_type": "tmdb:popularity",
+          "value": 28.514
+        },
+        {
+          "provider_type": "tomato:rating",
+          "value": 1
+        },
+        {
+          "provider_type": "imdb:score",
+          "value": 8.9
+        }
+      ],
+      "cinema_release_date": "1994-11-03"
+    }
+  ]
+}
