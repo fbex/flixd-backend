@@ -2,8 +2,8 @@ package io.fbex.flixd.backend.media
 
 import io.fbex.flixd.backend.media.model.MOVIE_SHAWSHANK_REDEMPTION
 import io.fbex.flixd.backend.media.model.MediaSearchResult
-import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SCRUBS
-import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SHAWSHANK_REDEMPTION
+import io.fbex.flixd.backend.media.model.BASIC_TV_SCRUBS
+import io.fbex.flixd.backend.media.model.BASIC_MOVIE_SHAWSHANK_REDEMPTION
 import io.fbex.flixd.backend.media.model.TV_SCRUBS
 import io.mockk.every
 import io.mockk.mockk
@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 
-@WebMvcTest
+@WebMvcTest(controllers = [MediaRestController::class])
 internal class MediaRestControllerTests(
     @Autowired private val mockMvc: MockMvc,
     @Autowired private val mediaService: MediaService
@@ -34,8 +34,8 @@ internal class MediaRestControllerTests(
         every { mediaService.search("query") } returns
                 MediaSearchResult(
                     results = listOf(
-                        SEARCH_ITEM_SCRUBS,
-                        SEARCH_ITEM_SHAWSHANK_REDEMPTION
+                        BASIC_TV_SCRUBS,
+                        BASIC_MOVIE_SHAWSHANK_REDEMPTION
                     )
                 )
 
@@ -50,7 +50,7 @@ internal class MediaRestControllerTests(
             		"releaseDate": "2001-10-02",
             		"voteAverage": 7.9,
             		"voteCount": 768,
-            		"popularity": 42.175,
+            		"popularity": 40.779,
             		"genreIds": [35],
             		"posterPath": "/u1z05trCA7AuSuDhi365grwdos1.jpg",
             		"backdropPath": "/sVaCswyCaBdCMIfClV1caOBCoKT.jpg"
@@ -64,7 +64,7 @@ internal class MediaRestControllerTests(
             		"voteAverage": 8.7,
             		"voteCount": 16098,
             		"popularity": 45.386,
-            		"genreIds": [80, 18],
+            		"genreIds": [18, 80],
             		"posterPath": "/78Pb6FMLMfpm1jUOKTniwREYgAN.jpg",
             		"backdropPath": "/avedvodAZUcwqevBfm8p4G2NziQ.jpg"
             	}]

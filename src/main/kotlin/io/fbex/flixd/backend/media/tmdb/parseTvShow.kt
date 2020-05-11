@@ -4,15 +4,19 @@ import com.fasterxml.jackson.databind.JsonNode
 import io.fbex.flixd.backend.common.asLocalDate
 import io.fbex.flixd.backend.common.asTextOrNull
 import io.fbex.flixd.backend.media.model.Genre
+import io.fbex.flixd.backend.media.model.MediaId
+import io.fbex.flixd.backend.media.model.MediaType
 import io.fbex.flixd.backend.media.model.TvShow
 
 internal fun parseTvShow(node: JsonNode): TvShow {
+    val tmdbId = node.get("id").asInt()
     return TvShow(
         name = node.get("name").asText(),
         originalName = node.get("original_name").asText(),
         firstAirDate = node.get("first_air_date").asLocalDate(),
         lastAirDate = node.get("last_air_date").asLocalDate(),
-        tmdbId = node.get("id").asInt(),
+        mediaId = MediaId(tmdbId, MediaType.TvShow),
+        tmdbId = tmdbId,
         imdbId = node.get("imdb_id")?.asTextOrNull(),
         voteAverage = node.get("vote_average").asDouble(),
         voteCount = node.get("vote_count").asInt(),

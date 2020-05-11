@@ -1,6 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val okHttpVersion = "4.6.0"
+val kotlinLoggingVersion = "1.7.9"
+// test dependencies
 val wireMockVersion = "2.26.3"
 val mockkVersion = "1.10.0"
 
@@ -21,14 +23,16 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
+    implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+    implementation("org.flywaydb:flyway-core")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    runtimeOnly("com.h2database:h2")
+    implementation("org.postgresql:postgresql")
+    testRuntimeOnly("com.h2database:h2")
     testImplementation("com.github.tomakehurst:wiremock-jre8-standalone:$wireMockVersion")
     testImplementation("io.mockk:mockk:$mockkVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {

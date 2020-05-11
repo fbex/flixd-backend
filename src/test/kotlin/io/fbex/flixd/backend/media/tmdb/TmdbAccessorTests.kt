@@ -3,12 +3,12 @@ package io.fbex.flixd.backend.media.tmdb
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
+import io.fbex.flixd.backend.media.model.BASIC_TV_SCRUBS
 import io.fbex.flixd.backend.media.model.MOVIE_SHAWSHANK_REDEMPTION
-import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SCRUBS
-import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SHAWSHANK_REDEMPTION
+import io.fbex.flixd.backend.media.model.MediaType.Movie
+import io.fbex.flixd.backend.media.model.MediaType.TvShow
+import io.fbex.flixd.backend.media.model.SEARCH_MOVIE_SHAWSHANK_REDEMPTION
 import io.fbex.flixd.backend.media.model.TV_SCRUBS
-import io.fbex.flixd.backend.media.model.MediaSearchItem.Type.Movie
-import io.fbex.flixd.backend.media.model.MediaSearchItem.Type.TvShow
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.AfterEach
@@ -69,7 +69,7 @@ internal class TmdbAccessorTests {
                 assertThat(results.filter { it.type == Movie }).hasSize(6)
                 assertThat(results.map { it.popularity })
                     .containsExactly(45.386, 2.734, 2.394, 1.924, 1.847, 0.699)
-                assertThat(results.first()).isEqualToComparingFieldByField(SEARCH_ITEM_SHAWSHANK_REDEMPTION)
+                assertThat(results.first()).isEqualToComparingFieldByField(SEARCH_MOVIE_SHAWSHANK_REDEMPTION)
             }
         }
 
@@ -90,8 +90,8 @@ internal class TmdbAccessorTests {
             with(result) {
                 assertThat(results).hasSize(3)
                 assertThat(results.filter { it.type == TvShow }).hasSize(3)
-                assertThat(results.map { it.popularity }).containsExactly(42.175, 0.6, 0.6)
-                assertThat(results.first()).isEqualToComparingFieldByField(SEARCH_ITEM_SCRUBS)
+                assertThat(results.map { it.popularity }).containsExactly(40.779, 0.6, 0.6)
+                assertThat(results.first()).isEqualToComparingFieldByField(BASIC_TV_SCRUBS)
             }
         }
 

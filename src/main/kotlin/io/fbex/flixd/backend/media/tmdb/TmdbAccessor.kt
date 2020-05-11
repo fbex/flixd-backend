@@ -28,7 +28,7 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
     private val searchUrl = "${properties.url}/search/multi"
     private val movieUrl = "${properties.url}/movie"
     private val tvUrl = "${properties.url}/tv"
-    private val relevantMediaTypes = MediaType.values().map { it.tmdbName }
+    private val relevantMediaTypes = TmdbMediaType.values().map { it.tmdbName }
 
     /**
      * Search for movies or tv shows in a single request.
@@ -64,7 +64,7 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
         val rawResults = jsonBody.get("results")?.toList() ?: emptyList()
         val results = rawResults
             .filter { it.get("media_type").asText() in relevantMediaTypes }
-            .map { parseMediaSearchItem(it) }
+            .map { parseBasicMediaItem(it) }
             .sortedByDescending { it.popularity }
         return MediaSearchResult(results)
     }
