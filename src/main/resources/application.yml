@@ -6,3 +6,21 @@ tmdb:
   url: https://api.themoviedb.org/3
   api-key: undefined
   language: de-DE
+
+spring:
+  jpa:
+    database: postgresql
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/flixd
+    username: postgres
+    password: mysecretpassword
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: false

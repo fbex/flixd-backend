@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL
 import java.time.LocalDate
 
 sealed class MediaItem {
+    abstract val mediaId: MediaId
     abstract val tmdbId: Int
     abstract val imdbId: String?
     abstract val voteAverage: Double
@@ -21,6 +22,7 @@ data class Movie(
     val title: String,
     val originalTitle: String,
     val releaseDate: LocalDate,
+    override val mediaId: MediaId,
     override val tmdbId: Int,
     override val imdbId: String?,
     override val voteAverage: Double,
@@ -38,6 +40,7 @@ data class TvShow(
     val originalName: String,
     val firstAirDate: LocalDate,
     val lastAirDate: LocalDate,
+    override val mediaId: MediaId,
     override val tmdbId: Int,
     override val imdbId: String?,
     override val voteAverage: Double,

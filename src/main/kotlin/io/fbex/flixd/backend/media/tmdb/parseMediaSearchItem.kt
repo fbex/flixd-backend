@@ -3,13 +3,21 @@ package io.fbex.flixd.backend.media.tmdb
 import com.fasterxml.jackson.databind.JsonNode
 import io.fbex.flixd.backend.common.asLocalDateOrNull
 import io.fbex.flixd.backend.common.asTextOrNull
-import io.fbex.flixd.backend.media.model.MediaSearchItem
+import io.fbex.flixd.backend.media.model.BasicMediaItem
+import io.fbex.flixd.backend.media.model.MediaId
+import io.fbex.flixd.backend.media.model.MediaType
 
-internal fun parseMediaSearchItem(node: JsonNode): MediaSearchItem {
+/**
+ * Parser for /search/multi results into [BasicMediaItem].
+ */
+internal fun parseBasicMediaItem(node: JsonNode): BasicMediaItem {
     val type = node.get("media_type").asMediaType()
-    return MediaSearchItem(
-        tmdbId = node.get("id").asInt(),
-        type = type.mediaSearchItemType,
+    val tmdbId = node.get("id").asInt()
+    return BasicMediaItem(
+        mediaId = MediaId(tmdbId, type.mediaType),
+        tmdbId = tmdbId,
+        imdbId = null,
+        type = type.mediaType,
         title = node.get(type.titleProperty).asText(),
         originalTitle = node.get(type.originalTitleProperty).asText(),
         originalLanguage = node.get("original_language").asText(),
@@ -23,22 +31,22 @@ internal fun parseMediaSearchItem(node: JsonNode): MediaSearchItem {
     )
 }
 
-internal enum class MediaType(
-    val mediaSearchItemType: MediaSearchItem.Type,
+internal enum class TmdbMediaType(
+    val mediaType: MediaType,
     val tmdbName: String,
     val titleProperty: String,
     val originalTitleProperty: String,
     val releaseDateProperty: String
 ) {
     Movie(
-        mediaSearchItemType = MediaSearchItem.Type.Movie,
+        mediaType = MediaType.Movie,
         tmdbName = "movie",
         titleProperty = "title",
         originalTitleProperty = "original_title",
         releaseDateProperty = "release_date"
     ),
-    TvShow(
-        mediaSearchItemType = MediaSearchItem.Type.TvShow,
+    Tv(
+        mediaType = MediaType.TvShow,
         tmdbName = "tv",
         titleProperty = "name",
         originalTitleProperty = "original_name",
@@ -46,8 +54,8 @@ internal enum class MediaType(
     )
 }
 
-private fun JsonNode.asMediaType(): MediaType = when (val value = asText()) {
-    "movie" -> MediaType.Movie
-    "tv" -> MediaType.TvShow
+private fun JsonNode.asMediaType(): TmdbMediaType = when (val value = asText()) {
+    "movie" -> TmdbMediaType.Movie
+    "tv" -> TmdbMediaType.Tv
     else -> error("MediaItem.Type [$value] is not supported")
 }
