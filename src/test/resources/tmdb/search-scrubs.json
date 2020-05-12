@@ -1,0 +1,63 @@
+{
+  "page": 1,
+  "total_results": 3,
+  "total_pages": 1,
+  "results": [
+    {
+      "original_name": "Scrubs",
+      "genre_ids": [
+        35
+      ],
+      "media_type": "tv",
+      "name": "Scrubs - Die Anfänger",
+      "popularity": 42.175,
+      "origin_country": [
+        "US"
+      ],
+      "vote_count": 768,
+      "first_air_date": "2001-10-02",
+      "backdrop_path": "/sVaCswyCaBdCMIfClV1caOBCoKT.jpg",
+      "original_language": "en",
+      "id": 4556,
+      "vote_average": 7.9,
+      "overview": "Der junge Mediziner John “J.D.” Dorian schlägt sich mit seinen Kollegen durch den chaotisch-skurrilen Krankenhausalltag. Dabei werden die jungen Ärzte von ihrem bösartigen Chef Dr. Kelso und dem hinterhältigen Hausmeister geplagt. Doch nicht nur der Job hält die Mediziner auf Trab – auch ihr Privatleben gerät immer wieder in Turbulenzen.",
+      "poster_path": "/u1z05trCA7AuSuDhi365grwdos1.jpg"
+    },
+    {
+      "original_name": "Scrubs: Interns",
+      "genre_ids": [
+        35
+      ],
+      "media_type": "tv",
+      "name": "Scrubs: Interns",
+      "popularity": 0.6,
+      "origin_country": [],
+      "vote_count": 2,
+      "first_air_date": "2009-02-03",
+      "backdrop_path": null,
+      "original_language": "en",
+      "id": 17486,
+      "vote_average": 7,
+      "overview": "",
+      "poster_path": null
+    },
+    {
+      "original_name": "Wormwood Scrubs",
+      "genre_ids": [],
+      "media_type": "tv",
+      "name": "Wormwood Scrubs",
+      "popularity": 0.6,
+      "origin_country": [
+        "GB"
+      ],
+      "vote_count": 0,
+      "first_air_date": "2010-05-10",
+      "backdrop_path": null,
+      "original_language": "en",
+      "id": 38053,
+      "vote_average": 0,
+      "overview": "",
+      "poster_path": null
+    }
+  ]
+}

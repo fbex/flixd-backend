@@ -1,10 +1,11 @@
 package io.fbex.flixd.backend.tmdb
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.fbex.flixd.backend.common.call
 import io.fbex.flixd.backend.common.httpStatus
-import io.fbex.flixd.backend.common.parseAs
 import io.fbex.flixd.backend.common.queryParameters
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 
@@ -12,10 +13,12 @@ import org.springframework.stereotype.Service
 class TmdbService(private val properties: TmdbProperties) {
 
     private val httpClient = OkHttpClient()
-    private val movieUrl = "${properties.url}/search/movie"
+    private val objectMapper = jacksonObjectMapper().findAndRegisterModules()
+    private val searchUrl = "${properties.url}/search/multi"
+    private val relevantMediaTypes: List<String> = MediaItem.Type.values().map { it.tmdbName }
 
-    fun searchMovie(query: String): TmdbSearchResult {
-        val response = httpClient.call(movieUrl) {
+    fun search(query: String): MediaSearchResult {
+        val response = httpClient.call(searchUrl) {
             get()
             queryParameters {
                 addParameter("api_key", properties.apiKey)
@@ -26,9 +29,20 @@ class TmdbService(private val properties: TmdbProperties) {
             }
         }
         return when {
-            response.isSuccessful -> response.body.parseAs(TmdbSearchResult::class.java)
+            response.isSuccessful -> parseSearchResults(response.body)
             else -> throw TmdbResponseException(response.httpStatus)
         }
+    }
+
+    private fun parseSearchResults(response: ResponseBody?): MediaSearchResult {
+        if (response == null) error("Received no response body. Could not parse.")
+        val jsonBody = objectMapper.readTree(response.byteStream())
+        val rawResults = jsonBody.get("results")?.toList() ?: emptyList()
+        val results = rawResults
+            .filter { it.get("media_type").asText() in relevantMediaTypes }
+            .map { parseMediaResult(it) }
+            .sortedByDescending { it.popularity }
+        return MediaSearchResult(results)
     }
 }
 

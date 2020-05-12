@@ -1,0 +1,248 @@
+{
+  "page": 1,
+  "total_results": 10,
+  "total_pages": 1,
+  "results": [
+    {
+      "vote_count": 1,
+      "popularity": 0.699,
+      "id": 316693,
+      "video": false,
+      "media_type": "movie",
+      "vote_average": 3,
+      "title": "Artie Shaw's Class in Swing",
+      "release_date": "1939-01-01",
+      "original_language": "en",
+      "original_title": "Artie Shaw's Class in Swing",
+      "genre_ids": [
+        10402,
+        99
+      ],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "",
+      "poster_path": "/6UOY9p8xAYzAfPKO4Fo4GsRiQwY.jpg"
+    },
+    {
+      "poster_path": "/78Pb6FMLMfpm1jUOKTniwREYgAN.jpg",
+      "popularity": 45.386,
+      "vote_count": 16098,
+      "video": false,
+      "media_type": "movie",
+      "id": 278,
+      "adult": false,
+      "backdrop_path": "/avedvodAZUcwqevBfm8p4G2NziQ.jpg",
+      "original_language": "en",
+      "original_title": "The Shawshank Redemption",
+      "genre_ids": [
+        80,
+        18
+      ],
+      "title": "Die Verurteilten",
+      "vote_average": 8.7,
+      "overview": "Das Shawshank Gefängnis in den 30ern: der wegen Mordes an seiner Frau verurteilte Andy Dufresne kommt als Neuling lebenslänglich hinter Gittern. Zurückhaltend wie er ist, ist er ständig das Ziel sexueller Angriffe, doch als er als Banker durchblicken läßt, daß er finanziell für den Direktor und die Wärter eine Menge tun kann, ist für seine Sicherheit gesorgt. Langsam aber sicher freundet er sich mit dem Langzeitinsassen Red an, baut die Gefängnisbibliothek auf und rückt nie von seiner Überzeugung ab, unschuldig zu sein. Viele Jahre vergehen, bis etwas geschieht, was sogar Reds Leben für immer verändern wird...",
+      "release_date": "1994-09-23"
+    },
+    {
+      "vote_count": 6,
+      "popularity": 2.734,
+      "id": 38770,
+      "video": false,
+      "media_type": "movie",
+      "vote_average": 7,
+      "title": "Major Barbara",
+      "release_date": "1941-05-14",
+      "original_language": "en",
+      "original_title": "Major Barbara",
+      "genre_ids": [
+        35
+      ],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "",
+      "poster_path": "/qsaBjXZTWgiORhDp2HL1NGVnLRs.jpg"
+    },
+    {
+      "poster_path": "/pIUSjayXh2erGwY5hnFdAJCb9YX.jpg",
+      "popularity": 1.847,
+      "vote_count": 12,
+      "video": false,
+      "media_type": "movie",
+      "id": 108564,
+      "adult": false,
+      "backdrop_path": "/trW1FhClkCB21ivKdVIkTWMjXv.jpg",
+      "original_language": "en",
+      "original_title": "Saint Joan",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "title": "Die heilige Johanna",
+      "vote_average": 6.6,
+      "overview": "Die junge und mutige Jeanne d'Arc kommt an den französischen Hof, um den Dauphin zum König von Frankreich zu machen. Überzeugt, von Gott dazu berufen zu sein, übernimmt sie die Führung der französischen Armee, und führt sie im Kampf gegen die Engländer von Sieg zu Sieg, bis sie nicht mehr länger gebraucht und wegen Blasphemie als Hexe angeklagt wird. Jeanne lenkt nicht ein und beharrt auf ihre göttliche Berufung...",
+      "release_date": "1957-05-08"
+    },
+    {
+      "vote_count": 8,
+      "popularity": 2.394,
+      "id": 48646,
+      "video": false,
+      "media_type": "movie",
+      "vote_average": 5.9,
+      "title": "Androkles und der Löwe",
+      "release_date": "1952-12-01",
+      "original_language": "en",
+      "original_title": "Androcles and the Lion",
+      "genre_ids": [
+        35
+      ],
+      "backdrop_path": "/gpGI4siIbpYTBk4m5KV4g3iv0KR.jpg",
+      "adult": false,
+      "overview": "Zur Zeit der Christenverfolgungen im Römischen Reich weigert sich ein Löwe, jenen entlaufenen Sklaven zu verspeisen, der ihm einmal einen Dorn aus der Tatze gezogen hat.",
+      "poster_path": "/8HXTOhYIRWm8UmRy39NfIUyDUiu.jpg"
+    },
+    {
+      "vote_count": 7,
+      "popularity": 1.924,
+      "id": 546312,
+      "video": false,
+      "media_type": "movie",
+      "vote_average": 9.5,
+      "title": "Shawshank: The Redeeming Feature",
+      "release_date": "2001-09-08",
+      "original_language": "en",
+      "original_title": "Shawshank: The Redeeming Feature",
+      "genre_ids": [
+        99
+      ],
+      "backdrop_path": "/u6hgtSIzW8nDKKWmun9JDhZz2fp.jpg",
+      "adult": false,
+      "overview": "",
+      "poster_path": "/b7DGM74MRfiLqEveVKwh0jnQ8zX.jpg"
+    },
+    {
+      "known_for_department": "Acting",
+      "id": 1458123,
+      "name": "Shawen Higgins",
+      "known_for": [
+        {
+          "vote_count": 1,
+          "video": false,
+          "media_type": "movie",
+          "id": 336765,
+          "vote_average": 6,
+          "original_language": "en",
+          "original_title": "She Lights Up Well",
+          "title": "She Lights Up Well",
+          "genre_ids": [
+            35,
+            10402
+          ],
+          "adult": false,
+          "overview": "",
+          "release_date": "2014-09-17"
+        }
+      ],
+      "popularity": 0.98,
+      "profile_path": null,
+      "gender": 0,
+      "media_type": "person",
+      "adult": false
+    },
+    {
+      "known_for_department": "Costume & Make-Up",
+      "id": 1319746,
+      "name": "Sarah Shawe",
+      "known_for": [
+        {
+          "release_date": "1996-11-22",
+          "id": 199,
+          "vote_count": 1072,
+          "video": false,
+          "media_type": "movie",
+          "vote_average": 7.2,
+          "title": "Star Trek - Der erste Kontakt",
+          "genre_ids": [
+            28,
+            12,
+            878,
+            53
+          ],
+          "original_title": "Star Trek: First Contact",
+          "original_language": "en",
+          "adult": false,
+          "backdrop_path": "/13zoJs9NYW3mtqncZUOucUIVs7r.jpg",
+          "overview": "Captain Jean-Luc Picard und die Next-Generation-Crew brillieren in ihrem bisher nervenaufreibendsten Abenteuer - ein Science Fiction- Actionspektakel: gleichermaßen hervorragend wie einzigartig!  Sie nennen sich Borg. Ein Kollektiv - halb Mensch, halb Maschine - mit nur einem Ziel: alle Völker zu besiegen und anschließend zu assimilieren! Kopf des Kollektives ist die verführerische und sadistische Borg-Königin. Zusammen mit ihrem Volk befindet sie sich im direkten Kurs auf die Erde, mit dem Plan, die Geschichte zu verändern und dadurch die Menschheit zu vernichten! Picards letzte Begegnung mit den Borg hätte ihn fast das Leben gekostet - und jetzt will er Rache! Aber wie weit wird er gehen?",
+          "poster_path": "/80cgO8puQO95G6EBpyt41Mxxiqw.jpg"
+        }
+      ],
+      "popularity": 0.6,
+      "profile_path": null,
+      "gender": 1,
+      "media_type": "person",
+      "adult": false
+    },
+    {
+      "known_for_department": "Acting",
+      "id": 2529751,
+      "name": "David Shaw-Smith",
+      "known_for": [
+        {
+          "original_name": "Hands",
+          "genre_ids": [
+            99
+          ],
+          "media_type": "tv",
+          "name": "Hands",
+          "origin_country": [
+            "IE"
+          ],
+          "vote_count": 1,
+          "first_air_date": "1978-04-17",
+          "backdrop_path": null,
+          "original_language": "en",
+          "id": 99050,
+          "vote_average": 10,
+          "overview": "",
+          "poster_path": "/wunFpoCKWA0C9qJcOODZps4FfRr.jpg"
+        }
+      ],
+      "popularity": 0.6,
+      "profile_path": null,
+      "adult": false,
+      "media_type": "person",
+      "gender": 0
+    },
+    {
+      "known_for_department": "Acting",
+      "id": 2529753,
+      "name": "Sally Shaw-Smith",
+      "known_for": [
+        {
+          "original_name": "Hands",
+          "genre_ids": [
+            99
+          ],
+          "media_type": "tv",
+          "name": "Hands",
+          "origin_country": [
+            "IE"
+          ],
+          "vote_count": 1,
+          "first_air_date": "1978-04-17",
+          "backdrop_path": null,
+          "original_language": "en",
+          "id": 99050,
+          "vote_average": 10,
+          "overview": "",
+          "poster_path": "/wunFpoCKWA0C9qJcOODZps4FfRr.jpg"
+        }
+      ],
+      "popularity": 0.6,
+      "profile_path": null,
+      "adult": false,
+      "media_type": "person",
+      "gender": 0
+    }
+  ]
+}
