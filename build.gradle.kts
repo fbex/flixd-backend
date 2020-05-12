@@ -1,7 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val wireMockVersion = "2.26.3"
 val okHttpVersion = "4.6.0"
+val wireMockVersion = "2.26.3"
+val mockkVersion = "1.10.0"
 
 plugins {
     id("org.springframework.boot") version "2.2.6.RELEASE"
@@ -28,10 +29,11 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     runtimeOnly("com.h2database:h2")
+    testImplementation("com.github.tomakehurst:wiremock-jre8-standalone:$wireMockVersion")
+    testImplementation("io.mockk:mockk:$mockkVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("com.github.tomakehurst:wiremock-jre8-standalone:$wireMockVersion")
 }
 
 tasks.withType<Test> {

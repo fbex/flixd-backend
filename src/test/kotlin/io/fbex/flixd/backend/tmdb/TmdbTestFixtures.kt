@@ -2,19 +2,32 @@ package io.fbex.flixd.backend.tmdb
 
 import java.time.LocalDate
 
-val MOVIE_SILENCE_OF_THE_LAMBS = TmdbMovieResult(
-    id = 274,
-    title = "Das Schweigen der Lämmer",
-    original_title = "The Silence of the Lambs",
-    original_language = "en",
-    vote_average = 8.3,
-    vote_count = 10146,
-    video = false,
-    popularity = 6.51,
-    poster_path = "/rln3cSeqRusXZLjfWKdXh1c7C06.jpg",
-    genre_ids = listOf(80, 18, 27, 53),
-    backdrop_path = "/pI9B4wppGflpsOD2T6rxgC5Clmz.jpg",
-    adult = false,
-    overview = "Clarice Starling, Auszubildende beim FBI, bekommt von einem ihrer Lehrer den Auftrag, sich im Gefängnis mit Dr. Hannibal Lecter, einem Massenmörder und Psychiater, zu befassen. Durch ihre Unbefangenheit hoffen sie, daß Lecter ihnen bei der Suche nach einem anderen Serienkiller hilft, aber es ist nicht leicht, an Lecter heranzukommen.",
-    release_date = LocalDate.parse("1991-02-01")
+val MOVIE_SHAWSHANK_REDEMPTION = MediaItem(
+    tmdbId = 278,
+    type = MediaItem.Type.Movie,
+    title = "Die Verurteilten",
+    originalTitle = "The Shawshank Redemption",
+    originalLanguage = "en",
+    releaseDate = LocalDate.parse("1994-09-23"),
+    voteAverage = 8.7,
+    voteCount = 16098,
+    popularity = 45.386,
+    genreIds = listOf(80, 18),
+    posterPath = "/78Pb6FMLMfpm1jUOKTniwREYgAN.jpg",
+    backdropPath = "/avedvodAZUcwqevBfm8p4G2NziQ.jpg"
+)
+
+val TV_SCRUBS = MediaItem(
+    tmdbId = 4556,
+    type = MediaItem.Type.TvShow,
+    title = "Scrubs - Die Anfänger",
+    originalTitle = "Scrubs",
+    originalLanguage = "en",
+    releaseDate = LocalDate.parse("2001-10-02"),
+    voteAverage = 7.9,
+    voteCount = 768,
+    popularity = 42.175,
+    genreIds = listOf(35),
+    posterPath = "/u1z05trCA7AuSuDhi365grwdos1.jpg",
+    backdropPath = "/sVaCswyCaBdCMIfClV1caOBCoKT.jpg"
 )
