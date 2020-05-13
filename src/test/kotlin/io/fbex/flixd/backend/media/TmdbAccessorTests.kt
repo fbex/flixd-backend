@@ -1,10 +1,13 @@
-package io.fbex.flixd.backend.tmdb
+package io.fbex.flixd.backend.media
 
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
-import io.fbex.flixd.backend.tmdb.MediaSearchItem.Type.Movie
-import io.fbex.flixd.backend.tmdb.MediaSearchItem.Type.TvShow
+import io.fbex.flixd.backend.media.model.MediaSearchItem.Type.Movie
+import io.fbex.flixd.backend.media.model.MediaSearchItem.Type.TvShow
+import io.fbex.flixd.backend.media.tmdb.TmdbProperties
+import io.fbex.flixd.backend.media.tmdb.TmdbResponseException
+import io.fbex.flixd.backend.media.tmdb.TmdbAccessor
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.AfterEach
@@ -18,12 +21,12 @@ import org.springframework.http.MediaType
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
-internal class TmdbServiceTests {
+internal class TmdbAccessorTests {
 
     private val apiKey = "1234"
 
     private lateinit var wireMock: WireMockServer
-    private lateinit var testee: TmdbService
+    private lateinit var testee: TmdbAccessor
 
     @BeforeEach
     fun setUp() {
@@ -34,7 +37,7 @@ internal class TmdbServiceTests {
             apiKey = apiKey,
             language = "de-DE"
         )
-        testee = TmdbService(properties)
+        testee = TmdbAccessor(properties)
     }
 
     @AfterEach

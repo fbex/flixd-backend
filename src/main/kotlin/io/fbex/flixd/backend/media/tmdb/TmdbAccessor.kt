@@ -1,23 +1,25 @@
-package io.fbex.flixd.backend.tmdb
+package io.fbex.flixd.backend.media.tmdb
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.fbex.flixd.backend.common.call
 import io.fbex.flixd.backend.common.httpStatus
+import io.fbex.flixd.backend.common.isNotFound
 import io.fbex.flixd.backend.common.queryParameters
+import io.fbex.flixd.backend.media.model.MediaSearchResult
+import io.fbex.flixd.backend.media.model.Movie
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import okhttp3.ResponseBody
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 
 @Service
-class TmdbService(private val properties: TmdbProperties) {
+internal class TmdbAccessor(private val properties: TmdbProperties) {
 
     private val httpClient = OkHttpClient()
     private val objectMapper = jacksonObjectMapper().findAndRegisterModules()
     private val searchUrl = "${properties.url}/search/multi"
     private val movieUrl = "${properties.url}/movie"
-    private val relevantMediaTypes: List<String> = MediaSearchItem.Type.values().map { it.tmdbName }
+    private val relevantMediaTypes: List<String> = MediaType.values().map { it.tmdbName }
 
     fun search(query: String): MediaSearchResult {
         val response = httpClient.call(searchUrl) {
@@ -67,9 +69,6 @@ class TmdbService(private val properties: TmdbProperties) {
         return parseMovie(jsonBody)
     }
 }
-
-private val Response.isNotFound: Boolean
-    get() = code == 404
 
 class TmdbResponseException(httpStatus: HttpStatus) :
     IllegalStateException("TMDb responded with http status [$httpStatus]")

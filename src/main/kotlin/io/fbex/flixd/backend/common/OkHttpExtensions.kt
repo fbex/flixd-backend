@@ -29,6 +29,9 @@ fun <T> ResponseBody?.parseAs(clazz: Class<T>): T = when {
 val Response.httpStatus
     get() = HttpStatus.valueOf(code)
 
+val Response.isNotFound: Boolean
+    get() = httpStatus == HttpStatus.NOT_FOUND
+
 class QueryParamDsl(private val url: HttpUrl) {
 
     private val parameters = mutableMapOf<String, String>()

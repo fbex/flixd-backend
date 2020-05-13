@@ -1,5 +1,6 @@
-package io.fbex.flixd.backend.tmdb
+package io.fbex.flixd.backend.media
 
+import io.fbex.flixd.backend.media.model.MediaSearchResult
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
@@ -14,19 +15,24 @@ import org.springframework.test.web.servlet.post
 @WebMvcTest
 internal class MediaRestControllerTests(
     @Autowired private val mockMvc: MockMvc,
-    @Autowired private val tmdbService: TmdbService
+    @Autowired private val mediaService: MediaService
 ) {
 
     @TestConfiguration
     class Configuration {
         @Bean
-        fun tmdbSerivce(): TmdbService = mockk()
+        fun mediaService(): MediaService = mockk()
     }
 
     @Test
     fun `returns search result`() {
-        every { tmdbService.search("query") } returns
-                MediaSearchResult(results = listOf(SEARCH_ITEM_SCRUBS, SEARCH_ITEM_SHAWSHANK_REDEMPTION))
+        every { mediaService.search("query") } returns
+                MediaSearchResult(
+                    results = listOf(
+                        SEARCH_ITEM_SCRUBS,
+                        SEARCH_ITEM_SHAWSHANK_REDEMPTION
+                    )
+                )
 
         val expectedJson = """
             {

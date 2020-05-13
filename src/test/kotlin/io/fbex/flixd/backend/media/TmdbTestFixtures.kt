@@ -1,5 +1,8 @@
-package io.fbex.flixd.backend.tmdb
+package io.fbex.flixd.backend.media
 
+import io.fbex.flixd.backend.media.model.Genre
+import io.fbex.flixd.backend.media.model.MediaSearchItem
+import io.fbex.flixd.backend.media.model.Movie
 import java.time.LocalDate
 
 val SEARCH_ITEM_SHAWSHANK_REDEMPTION = MediaSearchItem(
@@ -34,6 +37,7 @@ val SEARCH_ITEM_SCRUBS = MediaSearchItem(
 
 val MOVIE_SHAWSHANK_REDEMPTION = Movie(
     tmdbId = 278,
+    imdbId = "tt0111161",
     title = "Die Verurteilten",
     originalTitle = "The Shawshank Redemption",
     originalLanguage = "en",
@@ -41,7 +45,10 @@ val MOVIE_SHAWSHANK_REDEMPTION = Movie(
     voteAverage = 8.7,
     voteCount = 16098,
     popularity = 45.386,
-    genres = listOf(Genre(18, "Drama"), Genre(80, "Krimi")),
+    genres = listOf(
+        Genre(18, "Drama"),
+        Genre(80, "Krimi")
+    ),
     posterPath = "/78Pb6FMLMfpm1jUOKTniwREYgAN.jpg",
     backdropPath = "/avedvodAZUcwqevBfm8p4G2NziQ.jpg"
 )
