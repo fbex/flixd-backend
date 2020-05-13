@@ -1,5 +1,6 @@
-package io.fbex.flixd.backend.tmdb
+package io.fbex.flixd.backend.media
 
+import io.fbex.flixd.backend.media.model.MediaSearchResult
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/media")
-class MediaRestController(private val tmdbService: TmdbService) {
+class MediaRestController(private val media: MediaService) {
 
     @PostMapping(
         "/search",
@@ -16,7 +17,7 @@ class MediaRestController(private val tmdbService: TmdbService) {
         produces = [APPLICATION_JSON_VALUE]
     )
     fun search(@RequestBody request: SearchRequest): MediaSearchResult =
-        tmdbService.search(request.query)
+        media.search(request.query)
 }
 
 data class SearchRequest(val query: String)
