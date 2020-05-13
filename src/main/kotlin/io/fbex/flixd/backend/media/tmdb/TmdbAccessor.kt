@@ -1,5 +1,6 @@
 package io.fbex.flixd.backend.media.tmdb
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.fbex.flixd.backend.common.call
 import io.fbex.flixd.backend.common.httpStatus
@@ -7,6 +8,7 @@ import io.fbex.flixd.backend.common.isNotFound
 import io.fbex.flixd.backend.common.queryParameters
 import io.fbex.flixd.backend.media.model.MediaSearchResult
 import io.fbex.flixd.backend.media.model.Movie
+import io.fbex.flixd.backend.media.model.TvShow
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import org.springframework.http.HttpStatus
@@ -19,6 +21,7 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
     private val objectMapper = jacksonObjectMapper().findAndRegisterModules()
     private val searchUrl = "${properties.url}/search/multi"
     private val movieUrl = "${properties.url}/movie"
+    private val tvUrl = "${properties.url}/tv"
     private val relevantMediaTypes: List<String> = MediaType.values().map { it.tmdbName }
 
     fun search(query: String): MediaSearchResult {
@@ -49,8 +52,12 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
         return MediaSearchResult(results)
     }
 
-    fun findMovie(tmdbId: Int): Movie? {
-        val response = httpClient.call("$movieUrl/$tmdbId") {
+    fun findMovie(tmdbId: Int): Movie? = doFind("$movieUrl/$tmdbId") { parseMovie(it) }
+
+    fun findTvShow(tmdbId: Int): TvShow? = doFind("$tvUrl/$tmdbId") { parseTvShow(it) }
+
+    private fun <R> doFind(url: String, block: (JsonNode) -> R): R? {
+        val response = httpClient.call(url) {
             get()
             queryParameters {
                 addParameter("api_key", properties.apiKey)
@@ -58,15 +65,16 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
             }
         }
         return when {
-            response.isSuccessful -> parseMovie(response.body)
+            response.isSuccessful -> parseBody(response.body, block)
             response.isNotFound -> null
             else -> throw TmdbResponseException(response.httpStatus)
         }
     }
 
-    private fun parseMovie(body: ResponseBody?): Movie {
-        val jsonBody = objectMapper.readTree(body!!.byteStream())
-        return parseMovie(jsonBody)
+    private fun <R> parseBody(body: ResponseBody?, block: (JsonNode) -> R): R? {
+        if (body == null) error("Received no response body. Could not parse.")
+        val jsonBody = objectMapper.readTree(body.byteStream())
+        return block(jsonBody)
     }
 }
 

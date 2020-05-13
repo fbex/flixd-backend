@@ -136,8 +136,8 @@ internal class TmdbAccessorTests {
         }
     }
 
-    @DisplayName("find movie")
     @Nested
+    @DisplayName("find movie")
     inner class FindMovie {
 
         @Test
@@ -192,5 +192,63 @@ internal class TmdbAccessorTests {
         }
 
         private fun url(tmdbId: Int): String = "/movie/$tmdbId?api_key=$apiKey&language=de-DE"
+    }
+
+    @Nested
+    @DisplayName("find tv show")
+    inner class FindTvShow {
+
+        @Test
+        fun `finds a movie by tmbdId`() {
+            val response = ClassPathResource("/tmdb/find_tv-4556-scrubs.json")
+            wireMock.givenThat(
+                WireMock.get(url(4556))
+                    .willReturn(
+                        WireMock.ok()
+                            .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                            .withBody(response.inputStream.readAllBytes())
+                    )
+            )
+
+            val result = testee.findTvShow(4556)
+
+            assertThat(result).isEqualTo(TV_SCRUBS)
+        }
+
+        @Test
+        fun `returns null if movie is not found`() {
+            val response = """
+                {
+                    "status_code": 34,
+                    "status_message": "The resource you requested could not be found."
+                }
+                """.trimIndent()
+            wireMock.givenThat(
+                WireMock.get(url(420))
+                    .willReturn(
+                        WireMock.notFound()
+                            .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                            .withBody(response)
+                    )
+            )
+
+            val result = testee.findTvShow(420)
+
+            assertThat(result).isNull()
+        }
+
+        @Test
+        fun `throws for unsuccessful response`() {
+            wireMock.givenThat(
+                WireMock.get(url(711))
+                    .willReturn(WireMock.serverError())
+            )
+
+            assertThatThrownBy { testee.findTvShow(711) }
+                .isInstanceOf(TmdbResponseException::class.java)
+                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+        }
+
+        private fun url(tmdbId: Int): String = "/tv/$tmdbId?api_key=$apiKey&language=de-DE"
     }
 }
