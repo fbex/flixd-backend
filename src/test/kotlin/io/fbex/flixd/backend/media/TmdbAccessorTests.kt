@@ -127,7 +127,7 @@ internal class TmdbAccessorTests {
 
             assertThatThrownBy { testee.search("xxx") }
                 .isInstanceOf(TmdbResponseException::class.java)
-                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+                .hasMessage("TMDB responded with http status [500 INTERNAL_SERVER_ERROR]")
         }
 
         private fun url(query: String): String {
@@ -188,7 +188,7 @@ internal class TmdbAccessorTests {
 
             assertThatThrownBy { testee.findMovie(711) }
                 .isInstanceOf(TmdbResponseException::class.java)
-                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+                .hasMessage("TMDB responded with http status [500 INTERNAL_SERVER_ERROR]")
         }
 
         private fun url(tmdbId: Int): String = "/movie/$tmdbId?api_key=$apiKey&language=de-DE"
@@ -246,7 +246,7 @@ internal class TmdbAccessorTests {
 
             assertThatThrownBy { testee.findTvShow(711) }
                 .isInstanceOf(TmdbResponseException::class.java)
-                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+                .hasMessage("TMDB responded with http status [500 INTERNAL_SERVER_ERROR]")
         }
 
         private fun url(tmdbId: Int): String = "/tv/$tmdbId?api_key=$apiKey&language=de-DE"

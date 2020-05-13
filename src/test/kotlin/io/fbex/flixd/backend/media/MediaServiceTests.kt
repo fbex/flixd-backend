@@ -30,4 +30,13 @@ internal class MediaServiceTests {
 
         assertThat(movie).isEqualTo(MOVIE_SHAWSHANK_REDEMPTION)
     }
+
+    @Test
+    fun `find tv show calls tmdb`() {
+        every { tmdbAccessor.findTvShow(711) } returns TV_SCRUBS
+
+        val movie = testee.findTvShow(711)
+
+        assertThat(movie).isEqualTo(TV_SCRUBS)
+    }
 }

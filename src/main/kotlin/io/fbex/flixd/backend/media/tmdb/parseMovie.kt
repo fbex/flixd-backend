@@ -1,9 +1,10 @@
 package io.fbex.flixd.backend.media.tmdb
 
 import com.fasterxml.jackson.databind.JsonNode
+import io.fbex.flixd.backend.common.asLocalDate
+import io.fbex.flixd.backend.common.asTextOrNull
 import io.fbex.flixd.backend.media.model.Genre
 import io.fbex.flixd.backend.media.model.Movie
-import java.time.LocalDate
 
 internal fun parseMovie(node: JsonNode): Movie {
     return Movie(
@@ -26,8 +27,3 @@ internal fun parseMovie(node: JsonNode): Movie {
         backdropPath = node.get("backdrop_path")?.asTextOrNull()
     )
 }
-
-private fun JsonNode.asLocalDate(): LocalDate = LocalDate.parse(asText())
-
-private fun JsonNode.asTextOrNull(): String? =
-    asText().takeUnless { it.isBlank() || it == "null" }

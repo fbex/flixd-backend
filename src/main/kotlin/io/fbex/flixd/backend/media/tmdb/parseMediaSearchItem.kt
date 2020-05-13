@@ -1,8 +1,9 @@
 package io.fbex.flixd.backend.media.tmdb
 
 import com.fasterxml.jackson.databind.JsonNode
+import io.fbex.flixd.backend.common.asLocalDateOrNull
+import io.fbex.flixd.backend.common.asTextOrNull
 import io.fbex.flixd.backend.media.model.MediaSearchItem
-import java.time.LocalDate
 
 internal fun parseMediaSearchItem(node: JsonNode): MediaSearchItem {
     val type = node.get("media_type").asMediaType()
@@ -44,12 +45,6 @@ internal enum class MediaType(
         releaseDateProperty = "first_air_date"
     )
 }
-
-private fun JsonNode.asLocalDateOrNull(): LocalDate? =
-    asText().takeUnless { it.isBlank() || it == "null" }?.let { LocalDate.parse(it) }
-
-private fun JsonNode.asTextOrNull(): String? =
-    asText().takeUnless { it.isBlank() || it == "null" }
 
 private fun JsonNode.asMediaType(): MediaType = when (val value = asText()) {
     "movie" -> MediaType.Movie
