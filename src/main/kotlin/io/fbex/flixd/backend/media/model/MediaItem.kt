@@ -1,5 +1,7 @@
 package io.fbex.flixd.backend.media.model
 
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL
 import java.time.LocalDate
 
 sealed class MediaItem {
@@ -14,6 +16,7 @@ sealed class MediaItem {
     abstract val backdropPath: String?
 }
 
+@JsonInclude(NON_NULL)
 data class Movie(
     val title: String,
     val originalTitle: String,
@@ -29,6 +32,7 @@ data class Movie(
     override val backdropPath: String?
 ) : MediaItem()
 
+@JsonInclude(NON_NULL)
 data class TvShow(
     val name: String,
     val originalName: String,

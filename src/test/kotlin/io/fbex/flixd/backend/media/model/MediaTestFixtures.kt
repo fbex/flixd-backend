@@ -1,9 +1,5 @@
-package io.fbex.flixd.backend.media
+package io.fbex.flixd.backend.media.model
 
-import io.fbex.flixd.backend.media.model.Genre
-import io.fbex.flixd.backend.media.model.MediaSearchItem
-import io.fbex.flixd.backend.media.model.Movie
-import io.fbex.flixd.backend.media.model.TvShow
 import java.time.LocalDate
 
 val SEARCH_ITEM_SHAWSHANK_REDEMPTION = MediaSearchItem(

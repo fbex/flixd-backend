@@ -1,13 +1,14 @@
-package io.fbex.flixd.backend.media
+package io.fbex.flixd.backend.media.tmdb
 
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
+import io.fbex.flixd.backend.media.model.MOVIE_SHAWSHANK_REDEMPTION
+import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SCRUBS
+import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SHAWSHANK_REDEMPTION
+import io.fbex.flixd.backend.media.model.TV_SCRUBS
 import io.fbex.flixd.backend.media.model.MediaSearchItem.Type.Movie
 import io.fbex.flixd.backend.media.model.MediaSearchItem.Type.TvShow
-import io.fbex.flixd.backend.media.tmdb.TmdbProperties
-import io.fbex.flixd.backend.media.tmdb.TmdbResponseException
-import io.fbex.flixd.backend.media.tmdb.TmdbAccessor
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.AfterEach
@@ -127,7 +128,7 @@ internal class TmdbAccessorTests {
 
             assertThatThrownBy { testee.search("xxx") }
                 .isInstanceOf(TmdbResponseException::class.java)
-                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+                .hasMessage("TMDB responded with http status [500 INTERNAL_SERVER_ERROR]")
         }
 
         private fun url(query: String): String {
@@ -188,7 +189,7 @@ internal class TmdbAccessorTests {
 
             assertThatThrownBy { testee.findMovie(711) }
                 .isInstanceOf(TmdbResponseException::class.java)
-                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+                .hasMessage("TMDB responded with http status [500 INTERNAL_SERVER_ERROR]")
         }
 
         private fun url(tmdbId: Int): String = "/movie/$tmdbId?api_key=$apiKey&language=de-DE"
@@ -246,7 +247,7 @@ internal class TmdbAccessorTests {
 
             assertThatThrownBy { testee.findTvShow(711) }
                 .isInstanceOf(TmdbResponseException::class.java)
-                .hasMessage("TMDb responded with http status [500 INTERNAL_SERVER_ERROR]")
+                .hasMessage("TMDB responded with http status [500 INTERNAL_SERVER_ERROR]")
         }
 
         private fun url(tmdbId: Int): String = "/tv/$tmdbId?api_key=$apiKey&language=de-DE"

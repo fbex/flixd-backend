@@ -1,6 +1,9 @@
 package io.fbex.flixd.backend.media
 
+import io.fbex.flixd.backend.media.model.MOVIE_SHAWSHANK_REDEMPTION
 import io.fbex.flixd.backend.media.model.MediaSearchResult
+import io.fbex.flixd.backend.media.model.SEARCH_ITEM_SHAWSHANK_REDEMPTION
+import io.fbex.flixd.backend.media.model.TV_SCRUBS
 import io.fbex.flixd.backend.media.tmdb.TmdbAccessor
 import io.mockk.every
 import io.mockk.mockk
@@ -29,5 +32,14 @@ internal class MediaServiceTests {
         val movie = testee.findMovie(420)
 
         assertThat(movie).isEqualTo(MOVIE_SHAWSHANK_REDEMPTION)
+    }
+
+    @Test
+    fun `find tv show calls tmdb`() {
+        every { tmdbAccessor.findTvShow(711) } returns TV_SCRUBS
+
+        val movie = testee.findTvShow(711)
+
+        assertThat(movie).isEqualTo(TV_SCRUBS)
     }
 }

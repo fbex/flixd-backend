@@ -14,6 +14,12 @@ import okhttp3.ResponseBody
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 
+/**
+ * Accessor for the TMDB API v3.
+ *
+ * For further documentation see:
+ * https://developers.themoviedb.org/3/getting-started/introduction
+ */
 @Service
 internal class TmdbAccessor(private val properties: TmdbProperties) {
 
@@ -22,8 +28,19 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
     private val searchUrl = "${properties.url}/search/multi"
     private val movieUrl = "${properties.url}/movie"
     private val tvUrl = "${properties.url}/tv"
-    private val relevantMediaTypes: List<String> = MediaType.values().map { it.tmdbName }
+    private val relevantMediaTypes = MediaType.values().map { it.tmdbName }
 
+    /**
+     * Search for movies or tv shows in a single request.
+     *
+     * The [SearchResults][MediaSearchResult] are sorted
+     * descending by popularity.
+     *
+     * For further documentation see:
+     * https://developers.themoviedb.org/3/search/multi-search
+     *
+     * @return [MediaSearchResult]
+     */
     fun search(query: String): MediaSearchResult {
         val response = httpClient.call(searchUrl) {
             get()
@@ -52,8 +69,24 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
         return MediaSearchResult(results)
     }
 
+    /**
+     * Get a [Movie] by its TMDB-ID.
+     *
+     * For further documentation see:
+     * https://developers.themoviedb.org/3/movies/get-movie-details
+     *
+     * @return [Movie]
+     */
     fun findMovie(tmdbId: Int): Movie? = doFind("$movieUrl/$tmdbId") { parseMovie(it) }
 
+    /**
+     * Get [TvShow] details by its TMDB-ID.
+     *
+     * For further documentation see:
+     * https://developers.themoviedb.org/3/tv/get-tv-details
+     *
+     * @return [TvShow]
+     */
     fun findTvShow(tmdbId: Int): TvShow? = doFind("$tvUrl/$tmdbId") { parseTvShow(it) }
 
     private fun <R> doFind(url: String, block: (JsonNode) -> R): R? {
@@ -79,4 +112,4 @@ internal class TmdbAccessor(private val properties: TmdbProperties) {
 }
 
 class TmdbResponseException(httpStatus: HttpStatus) :
-    IllegalStateException("TMDb responded with http status [$httpStatus]")
+    IllegalStateException("TMDB responded with http status [$httpStatus]")
