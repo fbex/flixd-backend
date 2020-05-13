@@ -7,5 +7,6 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConfigurationProperties(prefix = "tmdb")
 data class TmdbProperties(
     val url: String,
-    val apiKey: String
+    val apiKey: String,
+    val language: String
 )

@@ -26,7 +26,7 @@ internal class MediaRestControllerTests(
     @Test
     fun `returns search result`() {
         every { tmdbService.search("query") } returns
-                MediaSearchResult(results = listOf(TV_SCRUBS, MOVIE_SHAWSHANK_REDEMPTION))
+                MediaSearchResult(results = listOf(SEARCH_ITEM_SCRUBS, SEARCH_ITEM_SHAWSHANK_REDEMPTION))
 
         val expectedJson = """
             {

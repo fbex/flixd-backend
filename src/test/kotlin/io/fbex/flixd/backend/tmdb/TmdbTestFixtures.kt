@@ -2,9 +2,9 @@ package io.fbex.flixd.backend.tmdb
 
 import java.time.LocalDate
 
-val MOVIE_SHAWSHANK_REDEMPTION = MediaItem(
+val SEARCH_ITEM_SHAWSHANK_REDEMPTION = MediaSearchItem(
     tmdbId = 278,
-    type = MediaItem.Type.Movie,
+    type = MediaSearchItem.Type.Movie,
     title = "Die Verurteilten",
     originalTitle = "The Shawshank Redemption",
     originalLanguage = "en",
@@ -17,9 +17,9 @@ val MOVIE_SHAWSHANK_REDEMPTION = MediaItem(
     backdropPath = "/avedvodAZUcwqevBfm8p4G2NziQ.jpg"
 )
 
-val TV_SCRUBS = MediaItem(
+val SEARCH_ITEM_SCRUBS = MediaSearchItem(
     tmdbId = 4556,
-    type = MediaItem.Type.TvShow,
+    type = MediaSearchItem.Type.TvShow,
     title = "Scrubs - Die Anfänger",
     originalTitle = "Scrubs",
     originalLanguage = "en",
@@ -30,4 +30,18 @@ val TV_SCRUBS = MediaItem(
     genreIds = listOf(35),
     posterPath = "/u1z05trCA7AuSuDhi365grwdos1.jpg",
     backdropPath = "/sVaCswyCaBdCMIfClV1caOBCoKT.jpg"
+)
+
+val MOVIE_SHAWSHANK_REDEMPTION = Movie(
+    tmdbId = 278,
+    title = "Die Verurteilten",
+    originalTitle = "The Shawshank Redemption",
+    originalLanguage = "en",
+    releaseDate = LocalDate.parse("1994-09-23"),
+    voteAverage = 8.7,
+    voteCount = 16098,
+    popularity = 45.386,
+    genres = listOf(Genre(18, "Drama"), Genre(80, "Krimi")),
+    posterPath = "/78Pb6FMLMfpm1jUOKTniwREYgAN.jpg",
+    backdropPath = "/avedvodAZUcwqevBfm8p4G2NziQ.jpg"
 )

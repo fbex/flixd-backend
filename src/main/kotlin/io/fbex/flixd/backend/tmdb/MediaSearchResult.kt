@@ -6,11 +6,11 @@ import com.fasterxml.jackson.databind.JsonNode
 import java.time.LocalDate
 
 data class MediaSearchResult(
-    val results: List<MediaItem>
+    val results: List<MediaSearchItem>
 )
 
 @JsonInclude(NON_NULL)
-data class MediaItem(
+data class MediaSearchItem(
     val tmdbId: Int,
     val type: Type,
     val title: String,
@@ -45,9 +45,9 @@ data class MediaItem(
     }
 }
 
-fun parseMediaResult(node: JsonNode): MediaItem {
+fun parseMediaSearchItem(node: JsonNode): MediaSearchItem {
     val type = node.get("media_type").asMediaItemType()
-    return MediaItem(
+    return MediaSearchItem(
         tmdbId = node.get("id").asInt(),
         type = type,
         title = node.get(type.titleProperty).asText(),
@@ -69,8 +69,8 @@ private fun JsonNode.asLocalDateOrNull(): LocalDate? =
 private fun JsonNode.asTextOrNull(): String? =
     asText().takeUnless { it.isBlank() || it == "null" }
 
-private fun JsonNode.asMediaItemType(): MediaItem.Type = when (val value = asText()) {
-    "movie" -> MediaItem.Type.Movie
-    "tv" -> MediaItem.Type.TvShow
+private fun JsonNode.asMediaItemType(): MediaSearchItem.Type = when (val value = asText()) {
+    "movie" -> MediaSearchItem.Type.Movie
+    "tv" -> MediaSearchItem.Type.TvShow
     else -> error("MediaItem.Type [$value] is not supported")
 }

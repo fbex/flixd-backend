@@ -5,6 +5,7 @@ import io.fbex.flixd.backend.common.call
 import io.fbex.flixd.backend.common.httpStatus
 import io.fbex.flixd.backend.common.queryParameters
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import okhttp3.ResponseBody
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -15,14 +16,15 @@ class TmdbService(private val properties: TmdbProperties) {
     private val httpClient = OkHttpClient()
     private val objectMapper = jacksonObjectMapper().findAndRegisterModules()
     private val searchUrl = "${properties.url}/search/multi"
-    private val relevantMediaTypes: List<String> = MediaItem.Type.values().map { it.tmdbName }
+    private val movieUrl = "${properties.url}/movie"
+    private val relevantMediaTypes: List<String> = MediaSearchItem.Type.values().map { it.tmdbName }
 
     fun search(query: String): MediaSearchResult {
         val response = httpClient.call(searchUrl) {
             get()
             queryParameters {
                 addParameter("api_key", properties.apiKey)
-                addParameter("language", "de-DE")
+                addParameter("language", properties.language)
                 addParameter("page", "1")
                 addParameter("include_adult", "false")
                 addParameter("query", query)
@@ -34,17 +36,40 @@ class TmdbService(private val properties: TmdbProperties) {
         }
     }
 
-    private fun parseSearchResults(response: ResponseBody?): MediaSearchResult {
-        if (response == null) error("Received no response body. Could not parse.")
-        val jsonBody = objectMapper.readTree(response.byteStream())
+    private fun parseSearchResults(body: ResponseBody?): MediaSearchResult {
+        if (body == null) error("Received no response body. Could not parse.")
+        val jsonBody = objectMapper.readTree(body.byteStream())
         val rawResults = jsonBody.get("results")?.toList() ?: emptyList()
         val results = rawResults
             .filter { it.get("media_type").asText() in relevantMediaTypes }
-            .map { parseMediaResult(it) }
+            .map { parseMediaSearchItem(it) }
             .sortedByDescending { it.popularity }
         return MediaSearchResult(results)
     }
+
+    fun findMovie(tmdbId: Int): Movie? {
+        val response = httpClient.call("$movieUrl/$tmdbId") {
+            get()
+            queryParameters {
+                addParameter("api_key", properties.apiKey)
+                addParameter("language", properties.language)
+            }
+        }
+        return when {
+            response.isSuccessful -> parseMovie(response.body)
+            response.isNotFound -> null
+            else -> throw TmdbResponseException(response.httpStatus)
+        }
+    }
+
+    private fun parseMovie(body: ResponseBody?): Movie {
+        val jsonBody = objectMapper.readTree(body!!.byteStream())
+        return parseMovie(jsonBody)
+    }
 }
+
+private val Response.isNotFound: Boolean
+    get() = code == 404
 
 class TmdbResponseException(httpStatus: HttpStatus) :
     IllegalStateException("TMDb responded with http status [$httpStatus]")
