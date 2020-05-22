@@ -4,7 +4,7 @@ logging:
 
 tmdb:
   url: https://api.themoviedb.org/3
-  api-key: undefined
+  api-key: ${TMDB_API_KEY}
   language: de-DE
 
 spring:
