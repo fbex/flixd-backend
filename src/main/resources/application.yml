@@ -2,14 +2,18 @@ logging:
   level:
     root: INFO
 
+spring:
+  jpa:
+    database: postgresql
+  security:
+    user:
+      name: ${USER_NAME}
+      password: ${USER_PASSWORD}
+
 tmdb:
   url: https://api.themoviedb.org/3
   api-key: ${TMDB_API_KEY}
   language: de-DE
-
-spring:
-  jpa:
-    database: postgresql
 
 ---
 
@@ -20,7 +24,11 @@ spring:
     username: postgres
     password: mysecretpassword
   jpa:
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: false
+  security:
+    user:
+      name: user
+      password: password
