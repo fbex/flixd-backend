@@ -17,12 +17,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.http.MediaType
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 
-@WebMvcTest(controllers = [WatchlistRestController::class])
+@WebMvcTest(WatchlistRestController::class)
 internal class WatchlistRestControllerTests @Autowired constructor(
     private val mockMvc: MockMvc,
     private val service: WatchlistService
@@ -41,11 +42,19 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         fun watchlistService(): WatchlistService = mockk()
     }
 
+    @Test
+    fun `returns status 401 UNAUTHORIZED if request is not authorized`() {
+        mockMvc.get(basePath).andExpect {
+            status { isUnauthorized }
+        }
+    }
+
     @Nested
     @DisplayName("get watchlist")
     inner class GetWatchlist {
 
         @Test
+        @WithMockUser
         fun `retrieves a watchlist from the service`() {
             val expectedJson = """
                 {
@@ -79,6 +88,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         }
 
         @Test
+        @WithMockUser
         fun `returns status 404 NOT_FOUND if requested watchlist is not found`() {
             every { service.getWatchlistById(watchlistId) } returns null
 
@@ -95,6 +105,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         private val addItemUrl = "$basePath/item/$MEDIA_ID_MOVIE_SHAWSHANK_REDEPMTION"
 
         @Test
+        @WithMockUser
         fun `adds an item to the watchlist`() {
             val expectedJson = """
                 {
@@ -123,6 +134,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         }
 
         @Test
+        @WithMockUser
         fun `returns status 422 UNPROCESSABLE_ENTITY if the item is not found`() {
             every { service.addItemByMediaId(watchlistId, MEDIA_ID_MOVIE_SHAWSHANK_REDEPMTION) } throws
                     MediaItemNotFoundException(MEDIA_ID_MOVIE_SHAWSHANK_REDEPMTION)
@@ -133,6 +145,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         }
 
         @Test
+        @WithMockUser
         fun `returns status 422 UNPROCESSABLE_ENTITY if the item is already present in the watchlist`() {
             val watchlistEntity = WatchlistEntity(items = mutableSetOf())
             val mediaItemEntity = BASIC_MOVIE_SHAWSHANK_REDEMPTION.toMediaItemEntity()
@@ -152,6 +165,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         private val removeItemUrl = "$basePath/item/$MEDIA_ID_MOVIE_SILENCE_OF_THE_LAMBS"
 
         @Test
+        @WithMockUser
         fun `removes an item from the watchlist`() {
             val expectedJson = """
                 {
@@ -182,6 +196,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         }
 
         @Test
+        @WithMockUser
         fun `returns status 422 UNPROCESSABLE_ENTITY if the item is not found`() {
             every { service.addItemByMediaId(watchlistId, MEDIA_ID_MOVIE_SILENCE_OF_THE_LAMBS) } throws
                     MediaItemNotFoundException(MEDIA_ID_MOVIE_SILENCE_OF_THE_LAMBS)
@@ -192,6 +207,7 @@ internal class WatchlistRestControllerTests @Autowired constructor(
         }
 
         @Test
+        @WithMockUser
         fun `returns status 422 UNPROCESSABLE_ENTITY if the item is not present in the watchlist`() {
             val watchlistEntity = WatchlistEntity(items = mutableSetOf())
             val mediaItemEntity = BASIC_MOVIE_SILENCE_OF_THE_LAMBS.toMediaItemEntity()

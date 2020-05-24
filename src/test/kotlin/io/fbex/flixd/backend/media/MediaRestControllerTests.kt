@@ -13,15 +13,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.http.MediaType
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 
-@WebMvcTest(controllers = [MediaRestController::class])
+@WebMvcTest(MediaRestController::class)
 internal class MediaRestControllerTests(
     @Autowired private val mockMvc: MockMvc,
     @Autowired private val mediaService: MediaService
 ) {
+
+    private val basePath = "/media"
 
     @TestConfiguration
     class Configuration {
@@ -30,6 +33,14 @@ internal class MediaRestControllerTests(
     }
 
     @Test
+    fun `returns status 401 UNAUTHORIZED if request is not authorized`() {
+        mockMvc.get(basePath).andExpect {
+            status { isUnauthorized }
+        }
+    }
+
+    @Test
+    @WithMockUser
     fun `returns search result`() {
         every { mediaService.search("query") } returns
                 MediaSearchResult(
@@ -71,7 +82,7 @@ internal class MediaRestControllerTests(
             }
             """.trimIndent()
 
-        mockMvc.post("/media/search") {
+        mockMvc.post("$basePath/search") {
             content = """{ "query": "query" }"""
             contentType = MediaType.APPLICATION_JSON
         }.andExpect {
@@ -82,6 +93,7 @@ internal class MediaRestControllerTests(
     }
 
     @Test
+    @WithMockUser
     fun `gets a movie`() {
         every { mediaService.findMovie(278) } returns MOVIE_SHAWSHANK_REDEMPTION
 
@@ -108,7 +120,7 @@ internal class MediaRestControllerTests(
             }
             """.trimIndent()
 
-        mockMvc.get("/media/movie/278")
+        mockMvc.get("$basePath/movie/278")
             .andExpect {
                 status { isOk }
                 content { contentType(MediaType.APPLICATION_JSON) }
@@ -117,16 +129,18 @@ internal class MediaRestControllerTests(
     }
 
     @Test
+    @WithMockUser
     fun `returns status 404 if a movie is not found`() {
         every { mediaService.findMovie(420) } returns null
 
-        mockMvc.get("/media/movie/420")
+        mockMvc.get("$basePath/movie/420")
             .andExpect {
                 status { isNotFound }
             }
     }
 
     @Test
+    @WithMockUser
     fun `gets a tv show`() {
         every { mediaService.findTvShow(4556) } returns TV_SCRUBS
 
@@ -150,7 +164,7 @@ internal class MediaRestControllerTests(
             }
             """.trimIndent()
 
-        mockMvc.get("/media/tv/4556")
+        mockMvc.get("$basePath/tv/4556")
             .andExpect {
                 status { isOk }
                 content { contentType(MediaType.APPLICATION_JSON) }
@@ -159,10 +173,11 @@ internal class MediaRestControllerTests(
     }
 
     @Test
+    @WithMockUser
     fun `returns status 404 if a tv show is not found`() {
         every { mediaService.findTvShow(711) } returns null
 
-        mockMvc.get("/media/tv/711")
+        mockMvc.get("$basePath/tv/711")
             .andExpect {
                 status { isNotFound }
             }
