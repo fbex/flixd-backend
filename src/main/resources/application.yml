@@ -2,6 +2,10 @@ logging:
   level:
     root: INFO
 
+server:
+  servlet:
+    context-path: /api
+
 spring:
   jpa:
     database: postgresql
@@ -14,6 +18,18 @@ tmdb:
   url: https://api.themoviedb.org/3
   api-key: ${TMDB_API_KEY}
   language: de-DE
+
+---
+
+spring:
+  profiles: aws
+  datasource:
+    url: jdbc:postgresql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}
+    username: ${RDS_USERNAME}
+    password: ${RDS_PASSWORD}
+
+server:
+  port: 5000
 
 ---
 

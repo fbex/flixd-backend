@@ -24,3 +24,23 @@ docker run -p 80:80 \
     -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
     -d dpage/pgadmin4
 ```
+
+## Deployment to Elastic Beanstalk
+
+Init with elastic beanstalk cli:
+```
+eb init
+eb setenv SPRING_PROFILES_ACTIVE=aws
+```
+
+Add deploy artifact to `.elasticbeanstalk/config.yml`:
+```
+deploy:
+  artifact: build/libs/flixd-backend-0.0.1-SNAPSHOT.jar
+``` 
+
+Run build and deploy:
+```
+./gradlew build
+eb deploy (--staged)
+```
