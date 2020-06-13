@@ -1,5 +1,7 @@
 # flixd-backend
 
+![CI](https://github.com/fbex/flixd-backend/workflows/CI/badge.svg?branch=master)
+
 Backend of the flixd watchlist application.
 
 ## Run locally
