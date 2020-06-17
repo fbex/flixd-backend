@@ -45,8 +45,14 @@ Run build and deploy:
 eb deploy (--staged)
 ```
 
-## Check for dependency updates
+## Dependency updates
 
+Check for dependency updates:
 ```
 ./gradlew dependencyUpdates
+```
+
+Upgrade gradle wrapper:
+```
+./gradlew wrapper --gradle-version=6.5
 ```
