@@ -1,17 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val okHttpVersion = "4.6.0"
-val kotlinLoggingVersion = "1.7.9"
+val okHttpVersion = "4.7.2"
+val kotlinLoggingVersion = "1.7.10"
 // test dependencies
 val wireMockVersion = "2.26.3"
 val mockkVersion = "1.10.0"
 
 plugins {
-    id("org.springframework.boot") version "2.2.6.RELEASE"
+    id("org.springframework.boot") version "2.3.1.RELEASE"
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
-    kotlin("jvm") version "1.3.71"
-    kotlin("plugin.spring") version "1.3.71"
-    kotlin("plugin.jpa") version "1.3.71"
+    id("com.github.ben-manes.versions") version "0.28.0"
+    kotlin("jvm") version "1.3.72"
+    kotlin("plugin.spring") version "1.3.72"
+    kotlin("plugin.jpa") version "1.3.72"
 }
 
 group = "io.fbex.flixd"
