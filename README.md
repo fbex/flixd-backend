@@ -44,3 +44,9 @@ Run build and deploy:
 ./gradlew build
 eb deploy (--staged)
 ```
+
+## Check for dependency updates
+
+```
+./gradlew dependencyUpdates
+```
